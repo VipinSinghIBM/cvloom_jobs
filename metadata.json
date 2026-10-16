@@ -1,0 +1,6 @@
+{
+  "name": "Sarkari Global by CVLoom",
+  "description": "A premium, professional government job portal with dynamic job listings, admit cards, results, educational resources, free tools, and an integrated admin panel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

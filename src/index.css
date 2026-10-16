@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "EB Garamond", Garamond, Georgia, serif;
+  --font-sans: "EB Garamond", Garamond, Georgia, serif;
+}
+
+:root {
+  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  --color-purpose-forest: #132E22;
+  --color-purpose-deep: #1B3B2B;
+  --color-purpose-green: #16A34A;
+}
+
+body {
+  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  background-color: #FAF9F5;
+  color: #1C1917;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input, button, textarea, select {
+  font-family: inherit;
+}
+
+/* PurposeHire style warm sector tags */
+.tag-orange {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background-color: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+}
+
+.tag-green {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background-color: #EAF6E9;
+  color: #166534;
+  border: 1px solid #BBF7D0;
+}
+
+@layer utilities {
+  @keyframes marqueeSlow {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee-slow {
+    display: inline-flex;
+    width: max-content;
+    animation: marqueeSlow 40s linear infinite;
+  }
+
+  .animate-marquee-slow:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-marquee-medium {
+    display: inline-flex;
+    width: max-content;
+    animation: marqueeSlow 25s linear infinite;
+  }
+
+  .animate-marquee-medium:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* No scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Print Optimization for Job Postings */
+@media print {
+  #app-header,
+  #app-footer,
+  #tools-quick-navbar,
+  .no-print,
+  button,
+  .category-sidebar,
+  .sketch-illustration,
+  nav,
+  aside {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #full-length-job-page {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Make sure layout expands to full width on paper */
+  .lg\:col-span-8 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Ensure background colors and borders print accurately */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-shadow: none !important;
+  }
+
+  /* Avoid page breaks inside tables and key sections */
+  table, tr, td, th, .print-avoid-break {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Ensure text is high contrast on paper */
+  p, span, h1, h2, h3, h4, strong, td, th {
+    color: #111827 !important;
+  }
+}
